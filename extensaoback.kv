@@ -1,0 +1,173 @@
+#:import get_color_from_hex kivy.utils.get_color_from_hex
+
+<MyTile@SmartTileWithStar>
+    size_hint_y: None
+    height: "140dp"
+
+
+MDBoxLayout:
+    orientation: "vertical"
+
+    MDToolbar:
+        title: "ENGESEP - Relatórios"
+        md_bg_color: rail.md_bg_color
+        left_action_items: [["menu", lambda x: app.rail_open()]]
+
+    MDBoxLayout:
+        MDNavigationRail:
+            id: rail
+            adaptive_size: True
+            md_bg_color: get_color_from_hex("#1C1C1C")
+            color_normal: get_color_from_hex("#718089")
+            color_active: get_color_from_hex("#f3ab44")
+            use_resizeable: True
+            MDNavigationRailItem:
+                icon: "connection"
+                text: "Conexão"
+                on_release: screen_manager.current = "screen5"
+
+        ScreenManager:
+            id:screen_manager
+            Screen:
+                name:"screen5"
+                id: test
+                MDBoxLayout:
+                    id : central
+                    orientation: "vertical"
+                    MDBoxLayout:
+                        adaptive_height: True
+                        padding: [10, 0, 10, 0]
+                        md_bg_color: get_color_from_hex("#1C1C1C")
+                        MDToolbar:
+                            id: conectado
+                            title: "Configurações de CLP e Banco de dados - Desconectado"
+                            size_hint_y: None
+                            height: "50dp"
+                            md_bg_color: get_color_from_hex("#4F4F4F")
+                            pos_hint: {"center_x": .5, "center_y": .5}
+                    MDBoxLayout:
+                        orientation:"horizontal"
+                        padding: [50, 0, 50, 0]
+                        md_bg_color: get_color_from_hex("#1C1C1C")
+                        id: registros
+                    
+                    MDBoxLayout:
+                        padding: [50, 0, 50, 0]
+                        md_bg_color: get_color_from_hex("#1C1C1C")
+                        MDBoxLayout:
+                            padding: [0, 0, 25, 0]
+                            MDTextFieldRound:
+                                id : nome
+                                hint_text: "Nome da usina hidrelétrica"
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+
+                        MDBoxLayout:
+                            padding: [25, 0, 0, 0]
+                            MDTextFieldRound:
+                                id : local
+                                hint_text: "Localização"
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+                    MDBoxLayout:
+                        padding: [50, 0, 50, 0]
+                        md_bg_color: get_color_from_hex("#1C1C1C")
+                        MDBoxLayout:
+                            padding: [0, 0, 25, 0]
+                            MDTextFieldRound:
+                                id : ip_a
+                                hint_text: "IP gerador um"
+                                text:'192.168.10.2'
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+                        MDBoxLayout:
+                            padding: [25, 0, 0, 0]
+                            MDTextFieldRound:
+                                id : ip_b
+                                hint_text: "IP gerador dois"
+                                text:'192.168.10.3'
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+                    MDBoxLayout:
+                        padding: [50, 0, 50, 0]
+                        md_bg_color: get_color_from_hex("#1C1C1C")
+                        MDBoxLayout:
+                            padding: [0, 0, 25, 0]
+                            MDTextFieldRound:
+                                id : port_a
+                                hint_text: "Registro CLP: Energia gerador um"
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+                        MDBoxLayout:
+                            padding: [25, 0, 0, 0]
+                            MDTextFieldRound:
+                                id : port_b
+                                hint_text: "Registro CLP: Energia gerador dois"
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+                    MDBoxLayout:
+                        padding: [50, 0, 50, 0]
+                        md_bg_color: get_color_from_hex("#1C1C1C")
+                        MDBoxLayout:
+                            padding: [0, 0, 25, 0]
+                            MDTextFieldRound:
+                                id : id_a
+                                hint_text: "Identificação gerador um"
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+                        MDBoxLayout:
+                            padding: [25, 0, 0, 0]
+                            MDTextFieldRound:
+                                id : id_b
+                                hint_text: "Identificação gerador dois"
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+                    MDBoxLayout:
+                        padding: [50, 0, 50, 0]
+                        md_bg_color: get_color_from_hex("#1C1C1C")
+                        MDBoxLayout:
+                            padding: [0, 0, 25, 0]
+                            MDTextFieldRound:
+                                id : nivel
+                                hint_text: "Registro CLP nível reservatório"
+                                color_active: get_color_from_hex("#c4face")
+                                normal_color: get_color_from_hex("#27e548")
+                                pos_hint: {"center_x": .5, "center_y": .5}
+                                disabled: False
+                        MDBoxLayout:
+                            padding: [25, 0, 0, 0]
+                            MDBoxLayout:
+                                padding: [0, 0, 0, 0]
+                                MDTextFieldRound:
+                                    id : tempo
+                                    hint_text: "Tempo banco de dados"
+                                    color_active: get_color_from_hex("#c4face")
+                                    normal_color: get_color_from_hex("#27e548")
+                                    pos_hint: {"center_x": .5, "center_y": .5}
+                                    disabled: False
+                            MDBoxLayout:
+                                padding: [50, 0, 0, 0]
+                                MDRaisedButton:
+                                    id: ligar
+                                    text:"Conectar"
+                                    md_bg_color: get_color_from_hex("#27979d")
+                                    on_release: app.conectar()
+                                    pos_hint: {"center_x": .7, "center_y": .5}
+                                    disabled: False
+
